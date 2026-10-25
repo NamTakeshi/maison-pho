@@ -1,0 +1,25 @@
+# Entwicklungs-Screenshots
+footer-braid.png
+highlights.png
+konzept-section.png
+konzept-to-highlights.png
+logo-pos.png
+marquee-check.png
+marquee-right.png
+nav-final.png
+nav-logo-final.png
+reviews-final.png
+reviews-new.png
+screenshot-*.png
+
+# Entwicklungs-HTML
+logo-auswahl.html
+logo-position.html
+
+# Dev-Tools
+.playwright-mcp/
+.superpowers/
+ui-concepts/
+
+# OS
+.DS_Store

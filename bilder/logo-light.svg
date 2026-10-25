@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" width="200" height="160">
+  <!-- Maison Phở · Logo Light (dark green on cream) -->
+  <!-- Hat -->
+  <path d="M100,24 L14,96 Q100,108 186,96 Z" fill="#0D2818"/>
+  <!-- Finial -->
+  <circle cx="100" cy="24" r="3.5" fill="#1A3525"/>
+  <!-- Chin string -->
+  <path d="M100,27 Q82,62 78,97" fill="none" stroke="rgba(10,26,15,0.35)" stroke-width="1.2"/>
+  <circle cx="78" cy="97" r="2" fill="rgba(10,26,15,0.4)"/>
+  <!-- Wordmark -->
+  <text x="100" y="133" text-anchor="middle" font-family="Outfit,Arial,sans-serif" font-size="11.5" fill="#0D2818" letter-spacing="8" font-weight="300">MAISON PHỞ</text>
+</svg>

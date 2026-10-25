@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speisekarte · Maison Phở Berlin</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #F2EDE5;
+      color: #1C1C18;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 13mm 16mm 22mm;
+      margin: 0 auto;
+      background: #F2EDE5;
+      position: relative;
+      page-break-after: always;
+    }
+
+    /* ── Header ── */
+    .pdf-header {
+      text-align: center;
+      padding-bottom: 7mm;
+      margin-bottom: 7mm;
+      border-bottom: 0.5pt solid rgba(160,120,64,0.35);
+    }
+
+    .pdf-header svg { display: block; margin: 0 auto 3mm; }
+
+    .pdf-name {
+      font-family: 'EB Garamond', serif;
+      font-size: 22pt;
+      letter-spacing: 7px;
+      text-transform: uppercase;
+      color: #1C1C18;
+      line-height: 1;
+    }
+
+    .gold-rule {
+      width: 44px;
+      height: 0.7pt;
+      background: #A07840;
+      margin: 4mm auto;
+    }
+
+    .pdf-tagline {
+      font-size: 7.5pt;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #A07840;
+      font-weight: 300;
+    }
+
+    /* ── Grid ── */
+    .cols-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 9mm;
+    }
+
+    /* ── Section ── */
+    .menu-section { margin-bottom: 5.5mm; }
+
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      gap: 7px;
+      margin-bottom: 2mm;
+    }
+
+    .section-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 13.5pt;
+      font-weight: 400;
+      color: #1C1C18;
+      line-height: 1;
+    }
+
+    .section-viet {
+      font-family: 'EB Garamond', serif;
+      font-size: 9.5pt;
+      font-style: italic;
+      color: #A07840;
+    }
+
+    .section-rule {
+      height: 0.5pt;
+      background: linear-gradient(90deg, #A07840 0%, rgba(160,120,64,0) 100%);
+      margin-bottom: 2mm;
+      opacity: 0.55;
+    }
+
+    /* ── Item ── */
+    .dish {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 2mm 0;
+      border-bottom: 0.5pt dotted rgba(160,120,64,0.22);
+    }
+
+    .dish:last-child { border-bottom: none; }
+
+    .dish-info { flex: 1; padding-right: 4mm; }
+
+    .dish-name {
+      font-family: 'EB Garamond', serif;
+      font-size: 10.5pt;
+      font-weight: 500;
+      color: #1C1C18;
+      line-height: 1.2;
+      margin-bottom: 1pt;
+    }
+
+    .dish-desc {
+      font-size: 7.5pt;
+      font-weight: 300;
+      color: #4A4A42;
+      line-height: 1.45;
+      margin-bottom: 1pt;
+    }
+
+    .dish-al {
+      font-size: 6.5pt;
+      color: #A07840;
+      opacity: 0.75;
+      letter-spacing: 0.3px;
+    }
+
+    .dish-price {
+      font-family: 'EB Garamond', serif;
+      font-size: 10.5pt;
+      color: #A07840;
+      white-space: nowrap;
+      min-width: 18mm;
+      text-align: right;
+      padding-top: 0.5pt;
+    }
+
+    /* ── Divider ornament ── */
+    .ornament {
+      text-align: center;
+      color: #A07840;
+      font-size: 9pt;
+      letter-spacing: 6px;
+      opacity: 0.5;
+      margin: 5mm 0;
+    }
+
+    /* ── Allergen note ── */
+    .al-note {
+      font-size: 6.5pt;
+      color: #7A7A6E;
+      line-height: 1.6;
+      padding-top: 4mm;
+      border-top: 0.5pt solid rgba(160,120,64,0.2);
+      margin-top: 5mm;
+    }
+
+    /* ── Page footer ── */
+    .pdf-foot {
+      position: absolute;
+      bottom: 8mm;
+      left: 16mm;
+      right: 16mm;
+      display: flex;
+      justify-content: space-between;
+      font-size: 7pt;
+      color: #A07840;
+      opacity: 0.7;
+      border-top: 0.5pt solid rgba(160,120,64,0.22);
+      padding-top: 2.5mm;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Print button (hidden when printing) ── */
+    .btn-print {
+      display: flex;
+      justify-content: center;
+      padding: 18px 0 0;
+    }
+
+    .btn-print button {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: #A07840;
+      color: #F2EDE5;
+      border: none;
+      padding: 11px 28px;
+      cursor: pointer;
+    }
+
+    @media print {
+      .btn-print { display: none; }
+      body { background: #F2EDE5; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Header -->
+  <header class="pdf-header">
+    <svg width="44" height="21" viewBox="0 12 200 98" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M100,24 L14,96 Q100,108 186,96 Z" fill="#A07840"/>
+      <circle cx="100" cy="24" r="3.5" fill="#C49A62"/>
+      <path d="M100,27 Q82,62 78,97" fill="none" stroke="rgba(160,120,64,0.45)" stroke-width="1.2"/>
+      <circle cx="78" cy="97" r="2" fill="rgba(160,120,64,0.5)"/>
+    </svg>
+    <p class="pdf-name">Maison Phở</p>
+    <div class="gold-rule"></div>
+    <p class="pdf-tagline">Authentische Vietnamesische Küche · Berlin</p>
+  </header>
+
+  <!-- Row 1: Vorspeisen | Hauptgerichte -->
+  <div class="cols-2">
+
+    <!-- LEFT: Vorspeisen -->
+    <div class="menu-section">
+      <div class="section-head">
+        <span class="section-title">Vorspeisen</span>
+        <span class="section-viet">Gỏi &amp; Chả Giò</span>
+      </div>
+      <div class="section-rule"></div>
+
+      <div class="dish">
+        <div class="dish-info">
+          <p class="dish-name">Frühlingsrollen (4 Stück)</p>
+          <p class="dish-desc">Knusprig frittiert mit Glasnudeln, Pilzen und Hackfleisch. Serviert mit Nước chấm.</p>
+          <p class="dish-al">A, C, F</p>
+        </div>
+        <p class="dish-price">7,90 €</p>
+      </div>
+
+      <div class="dish">
+        <div class="dish-info">
+          <p class="dish-name">Gỏi Cuốn Tôm</p>
+          <p class="dish-desc">Garnelen-Reispapierrollen (3 Stück) mit frischen Kräutern und Erdnuss-Sauce.</p>
+          <p class="dish-al">B, F</p>
+        </div>
+        <p class="dish-price">9,50 €</p>
+      </div>
+
+      <div class="dish">
+        <div class="dish-info">
+          <p class="dish-name">Grüner Papayasalat</p>
+          <p class="dish-desc">Grüne Papaya, Karotten, Minze, Koriander, geröstete Erdnüsse.</p>
+          <p class="dish-al">F</p>
+        </div>
+        <p class="dish-price">8,90 €</p>
+      </div>
+
+      <div class="dish">
+        <div class="dish-info">
+          <p class="dish-name">Bánh Xèo</p>
+          <p class="dish-desc">Knuspriger Reispfannkuchen mit Garnelen, Sojasprossen und Kräutern.</p>
+          <p class="dish-al">B, D</p>
+        </div>
+        <p class="dish-price">11,90 €</p>
+      </div>
+    </div>
+
+    <!-- RIGHT: Hauptgerichte -->
+    <div class="menu-section">
+      <div class="section-head">
+        <span class="section-title">Hauptgerichte</span>
+        <span class="section-viet">Cơm &amp; Bánh Mì</span>
+      </div>
+      <div class="section-rule"></div>
+
+      <div class="dish">
+        <div class="dish-info">
+          <p class="dish-name">Bánh Mì Thịt Nướng</p>
+          <p class="dish-desc">Knuspriges Baguette mit gegrilltem Schweinefleisch, Gurken und Jalapeños.</p>
+          <p class="dish-al">A, C</p>
+        </div>
+        <p class="dish-price">8,90 €</p>
+      </div>
+
+      <div class="dish">
+        <div class="dish-info">
+          <p class="dish-name">Cơm Tấm Sườn Nướng</p>
+          <p class="dish-desc">Gebrochener Reis mit marinierten Schweinerippen, Ei und eingelegtem Gemüse.</p>
+          <p class="dish-al">A, C, F</p>
+        </div>
+        <p class="dish-price">16,90 €</p>
+      </div>
+
+      <div class="dish">
+        <div class="dish-info">
+          <p class="dish-name">Bò Lúc Lắc</p>
+          <p class="dish-desc">Rinderwürfel in Austernsauce mit Watercress-Salat und Knoblauchbrot.</p>
+          <p class="dish-al">A, C, F</p>
+        </div>
+        <p class="dish-price">19,90 €</p>
+      </div>
+
+      <div class="dish">
+        <div class="dish-info">
+          <p class="dish-name">Gebratener Fisch</p>
+          <p class="dish-desc">Tagesfrischer Fisch mit Zitronengras, roter Chili und Ingwer. Mit Jasminreis.</p>
+          <p class="dish-al">D</p>
+        </div>
+        <p class="dish-price">18,50 €</p>
+      </div>
+    </div>
+
+  </div><!-- /row 1 -->
+
+  <div class="ornament">· · ◇ · ·</div>
+
+  <!-- Row 2: Suppen | Vegetarisch -->
+  <div class="cols-2">
+
+    <!-- LEFT: Suppen -->
+    <div class="menu-section">
+      <div class="section-head">
+        <span class="section-title">Suppen</span>
+        <span class="section-viet">Phở &amp; Bún</span>
+      </div>
+      <div class="section-rule"></div>
+
+      <div class="dish">
+        <div class="dish-info">
+          <p class="dish-name">Phở Bò Đặc Biệt</p>
+          <p class="dish-desc">12h-Rinderbrühe mit Reisnudeln, Rindfleisch und Bohnensprossen. Unsere Spezialität seit 1998.</p>
+          <p class="dish-al">A, F</p>
+        </div>
+        <p class="dish-price">14,90 €</p>
+      </div>
+
+      <div class="dish">
+        <div class="dish-info">
+          <p class="dish-name">Phở Gà</p>
+          <p class="dish-desc">Klare Hühnerbrühe mit Reisnudeln, zartem Hühnerfleisch und frischen Kräutern.</p>
+          <p class="dish-al">A</p>
+        </div>
+        <p class="dish-price">13,90 €</p>
+      </div>
+
+      <div class="dish">
+        <div class="dish-info">
+          <p class="dish-name">Bún Bò Huế</p>
+          <p class="dish-desc">Würzige Zitronengrasbrühe mit dicken Reisnudeln und Rindsbeinscheiben.</p>
+          <p class="dish-al">A, N</p>
+        </div>
+        <p class="dish-price">15,90 €</p>
+      </div>
+
+      <div class="dish">
+        <div class="dish-info">
+          <p class="dish-name">Bún Riêu Cua</p>
+          <p class="dish-desc">Saure Tomatenbrühe mit Krabbenmark-Klößen, Tofu und Reisnudeln.</p>
+          <p class="dish-al">B</p>
+        </div>
+        <p class="dish-price">14,50 €</p>
+      </div>
+    </div>
+
+    <!-- RIGHT: Vegetarisch -->
+    <div class="menu-section">
+      <div class="section-head">
+        <span class="section-title">Vegetarisch</span>
+        <span class="section-viet">Chay</span>
+      </div>
+      <div class="section-rule"></div>
+
+      <div class="dish">
+        <div class="dish-info">
+          <p class="dish-name">Phở Chay</p>
+          <p class="dish-desc">Gemüsebrühe mit Sternanis, Reisnudeln, Tofu und frischen Kräutern. 100 % vegan.</p>
+          <p class="dish-al">F</p>
+        </div>
+        <p class="dish-price">12,90 €</p>
+      </div>
+
+      <div class="dish">
+        <div class="dish-info">
+          <p class="dish-name">Vietnamesisches Gemüse-Curry</p>
+          <p class="dish-desc">Cremiges Kokosnuss-Curry mit Süßkartoffeln und Koriander. Mit Baguette oder Reis.</p>
+          <p class="dish-al">A</p>
+        </div>
+        <p class="dish-price">13,90 €</p>
+      </div>
+
+      <div class="dish">
+        <div class="dish-info">
+          <p class="dish-name">Bánh Mì Chay</p>
+          <p class="dish-desc">Veganes Sandwich mit mariniertem Tofu, Avocado und Chilisauce.</p>
+          <p class="dish-al">A, F</p>
+        </div>
+        <p class="dish-price">8,50 €</p>
+      </div>
+    </div>
+
+  </div><!-- /row 2 -->
+
+  <div class="ornament">· · ◇ · ·</div>
+
+  <!-- Row 3: Getränke | Desserts -->
+  <div class="cols-2">
+
+    <!-- LEFT: Getränke -->
+    <div class="menu-section">
+      <div class="section-head">
+        <span class="section-title">Getränke</span>
+        <span class="section-viet">Đồ Uống</span>
+      </div>
+      <div class="section-rule"></div>
+
+      <div class="dish">
+        <div class="dish-info">
+          <p class="dish-name">Vietnamesischer Eistee</p>
+          <p class="dish-desc">Frisch gebrühter grüner Tee, leicht gesüßt, über Eis.</p>
+        </div>
+        <p class="dish-price">3,50 €</p>
+      </div>
+
+      <div class="dish">
+        <div class="dish-info">
+          <p class="dish-name">Cà Phê Sữa Đá</p>
+          <p class="dish-desc">Vietnamesischer Eiskaffee mit gezuckerter Kondensmilch über Eis.</p>
+          <p class="dish-al">G</p>
+        </div>
+        <p class="dish-price">4,90 €</p>
+      </div>
+
+      <div class="dish">
+        <div class="dish-info">
+          <p class="dish-name">Mango-Smoothie</p>
+          <p class="dish-desc">Frische Alphonso-Mango, Kokosmilch, ein Hauch Limette.</p>
+        </div>
+        <p class="dish-price">5,90 €</p>
+      </div>
+
+      <div class="dish">
+        <div class="dish-info">
+          <p class="dish-name">Bia Hà Nội / 333</p>
+          <p class="dish-desc">Authentisches Helles aus Vietnam.</p>
+          <p class="dish-al">A</p>
+        </div>
+        <p class="dish-price">4,50 €</p>
+      </div>
+    </div>
+
+    <!-- RIGHT: Desserts -->
+    <div class="menu-section">
+      <div class="section-head">
+        <span class="section-title">Desserts</span>
+        <span class="section-viet">Tráng Miệng</span>
+      </div>
+      <div class="section-rule"></div>
+
+      <div class="dish">
+        <div class="dish-info">
+          <p class="dish-name">Chè Ba Màu</p>
+          <p class="dish-desc">Dreifarbiges Dessert aus roten Bohnen, grünem Gelee und Kokosmilch. Ein Klassiker.</p>
+        </div>
+        <p class="dish-price">5,90 €</p>
+      </div>
+
+      <div class="dish">
+        <div class="dish-info">
+          <p class="dish-name">Gegrillter Bananenkuchen</p>
+          <p class="dish-desc">Mit Kokosmilch und Tapioka, warm mit Kokosnuss-Sahne serviert.</p>
+          <p class="dish-al">C, G</p>
+        </div>
+        <p class="dish-price">6,90 €</p>
+      </div>
+
+      <div class="dish">
+        <div class="dish-info">
+          <p class="dish-name">Kokosnuss-Eis</p>
+          <p class="dish-desc">Hausgemachtes Eis in einer halben Kokosnuss mit gerösteten Kokosraspeln.</p>
+          <p class="dish-al">G</p>
+        </div>
+        <p class="dish-price">5,50 €</p>
+      </div>
+    </div>
+
+  </div><!-- /row 3 -->
+
+  <!-- Allergen note -->
+  <p class="al-note">Alle Preise inkl. MwSt. &nbsp;·&nbsp; Allergenkennzeichnung: A=Gluten &nbsp;·&nbsp; B=Krebstiere &nbsp;·&nbsp; C=Eier &nbsp;·&nbsp; D=Fisch &nbsp;·&nbsp; F=Soja &nbsp;·&nbsp; G=Milch &nbsp;·&nbsp; N=Sesam &nbsp;·&nbsp; Detaillierte Allergeninformationen auf Anfrage &nbsp;·&nbsp; Speisen können Spuren von Nüssen, Gluten, Milch und Eiern enthalten.</p>
+
+  <!-- Page footer -->
+  <div class="pdf-foot">
+    <span>Torstraße 142 · 10119 Berlin</span>
+    <span>MAISON PHỞ</span>
+    <span>Mo–Fr 11:30–22:00 &nbsp;·&nbsp; Sa–So 12:00–22:30</span>
+  </div>
+
+</div><!-- /page -->
+
+<!-- Print button -->
+<div class="btn-print">
+  <button onclick="window.print()">Als PDF speichern</button>
+</div>
+
+</body>
+</html>

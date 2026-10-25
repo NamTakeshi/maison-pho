@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speisekarte · Maison Phở Berlin</title>
+  <meta name="description" content="Entdecken Sie unsere authentische vietnamesische Speisekarte – Pho, Bánh Mì, Bún und mehr.">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=2">
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav id="main-nav">
+    <a class="nav-logo" href="index.html"><svg width="75" height="36" viewBox="0 12 200 98" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M100,24 L14,96 Q100,108 186,96 Z" fill="#A07840"/><circle cx="100" cy="24" r="3.5" fill="#C49A62"/><path d="M100,27 Q82,62 78,97" fill="none" stroke="rgba(196,154,98,0.45)" stroke-width="1.2"/><circle cx="78" cy="97" r="2" fill="rgba(196,154,98,0.5)"/></svg><span class="nav-logo-mark">MAISON PHỞ</span></a>
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+    <ul class="nav-menu">
+      <li><a href="speisekarte.html" class="nav-link">Speisekarte</a></li>
+      <li><a href="ueber-uns.html" class="nav-link">Über uns</a></li>
+      <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
+      <li><a href="reservierung.html" class="nav-link nav-cta">Reservieren</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <h1>Die <em>Speisekarte</em></h1>
+      <p>Generationsalte Rezepte – authentisch, frisch, mit Liebe zubereitet.</p>
+      <a href="speisekarte-pdf.html" target="_blank" class="btn btn--outline" style="margin-top:20px;display:inline-block;font-size:12px;letter-spacing:2px;">↓ Speisekarte als PDF</a>
+    </div>
+  </header>
+
+  <!-- ===== MENU ===== -->
+  <main class="menu">
+    <div class="menu-inner">
+
+      <!-- Tabs -->
+      <nav class="menu-tabs" aria-label="Kategorien">
+        <button class="menu-tab active" data-tab="alle">Alle</button>
+        <button class="menu-tab" data-tab="vorspeisen">Vorspeisen</button>
+        <button class="menu-tab" data-tab="suppen">Suppen</button>
+        <button class="menu-tab" data-tab="hauptgerichte">Hauptgerichte</button>
+        <button class="menu-tab" data-tab="vegetarisch">Vegetarisch</button>
+        <button class="menu-tab" data-tab="getraenke">Getränke</button>
+        <button class="menu-tab" data-tab="desserts">Desserts</button>
+      </nav>
+
+      <!-- VORSPEISEN -->
+      <div class="menu-section" data-category="vorspeisen">
+        <h2 class="menu-section-title">Vorspeisen</h2>
+        <p class="menu-section-sub">Gỏi &amp; Chả Giò</p>
+        <hr class="menu-divider">
+        <div class="menu-items">
+
+          <div class="menu-item fade-in">
+            <div class="menu-item-left">
+              <p class="dish-name">Frühlingsrollen (4 Stück)</p>
+              <p class="dish-desc">Knusprig frittiert mit Glasnudeln, Pilzen und Hackfleisch. Serviert mit Nước chấm.</p>
+              <p class="dish-allergens">Gluten, Ei, Nüsse · A, C, F</p>
+            </div>
+            <div class="menu-item-right">
+              <p class="price">7,90 €</p>
+            </div>
+          </div>
+
+          <div class="menu-item fade-in">
+            <div class="menu-item-left">
+              <p class="dish-name">Gỏi Cuốn Tôm – Garnelen-Reispapierrollen (3 Stück)</p>
+              <p class="dish-desc">Mit Garnelen, Reisnudeln, frischen Kräutern und Erdnuss-Sauce.</p>
+              <p class="dish-allergens">Krebstiere, Erdnüsse · B, F</p>
+            </div>
+            <div class="menu-item-right">
+              <p class="price">9,50 €</p>
+            </div>
+          </div>
+
+          <div class="menu-item fade-in">
+            <div class="menu-item-left">
+              <p class="dish-name">Grüner Papayasalat</p>
+              <p class="dish-desc">Grüne Papaya, Karotten, Minze, Koriander, geröstete Erdnüsse, vietnamesisches Dressing.</p>
+              <p class="dish-allergens">Erdnüsse · F</p>
+            </div>
+            <div class="menu-item-right">
+              <p class="price">8,90 €</p>
+            </div>
+          </div>
+
+          <div class="menu-item fade-in">
+            <div class="menu-item-left">
+              <p class="dish-name">Bánh Xèo – Knuspriger Reispfannkuchen</p>
+              <p class="dish-desc">Mit Garnelen, Sojasprossen und frischen Kräutern. Mit Fischsauce-Dip.</p>
+              <p class="dish-allergens">Krebstiere, Fisch · B, D</p>
+            </div>
+            <div class="menu-item-right">
+              <p class="price">11,90 €</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SUPPEN -->
+      <div class="menu-section" data-category="suppen">
+        <h2 class="menu-section-title">Suppen</h2>
+        <p class="menu-section-sub">Phở &amp; Bún</p>
+        <hr class="menu-divider">
+        <div class="menu-items">
+
+          <div class="menu-item fade-in">
+            <div class="menu-item-left">
+              <p class="dish-name">Phở Bò Đặc Biệt – Rinderknochen-Pho Special</p>
+              <p class="dish-desc">12 Stunden gekochte Rinderbrühe mit Reisnudeln, Rindfleisch (roh + gar), Bohnensprossen, frischen Kräutern. Unsere Spezialität seit 1998.</p>
+              <p class="dish-allergens">Gluten, Soja · A, F</p>
+            </div>
+            <div class="menu-item-right">
+              <p class="price">14,90 €</p>
+            </div>
+          </div>
+
+          <div class="menu-item fade-in">
+            <div class="menu-item-left">
+              <p class="dish-name">Phở Gà – Hühner-Pho</p>
+              <p class="dish-desc">Klare Hühnerbrühe mit Reisnudeln, zartem Hühnerfleisch, Ingwer und frischen Kräutern.</p>
+              <p class="dish-allergens">Gluten, Soja · A</p>
+            </div>
+            <div class="menu-item-right">
+              <p class="price">13,90 €</p>
+            </div>
+          </div>
+
+          <div class="menu-item fade-in">
+            <div class="menu-item-left">
+              <p class="dish-name">Bún Bò Huế – Würzige Nudelsuppe aus Huế</p>
+              <p class="dish-desc">Würzige Zitronengrasbrühe mit dicken Reisnudeln, Rindsbeinscheiben, Schweinefleisch und Roten Chilis. Scharf und intensiv.</p>
+              <p class="dish-allergens">Gluten, Sesam · A, N</p>
+            </div>
+            <div class="menu-item-right">
+              <p class="price">15,90 €</p>
+            </div>
+          </div>
+
+          <div class="menu-item fade-in">
+            <div class="menu-item-left">
+              <p class="dish-name">Krabben-Tomatensuppe – Bún Riêu Cua</p>
+              <p class="dish-desc">Saure Tomatenbrühe mit Krabbenmark-Klößen, Tofu, Reisnudeln und frischen Kräutern.</p>
+              <p class="dish-allergens">Krebstiere, Weichtiere · B</p>
+            </div>
+            <div class="menu-item-right">
+              <p class="price">14,50 €</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- HAUPTGERICHTE -->
+      <div class="menu-section" data-category="hauptgerichte">
+        <h2 class="menu-section-title">Hauptgerichte</h2>
+        <p class="menu-section-sub">Cơm &amp; Bánh Mì</p>
+        <hr class="menu-divider">
+        <div class="menu-items">
+
+          <div class="menu-item fade-in">
+            <div class="menu-item-left">
+              <p class="dish-name">Bánh Mì Thịt Nướng – Gegrilltes Sandwich</p>
+              <p class="dish-desc">Knuspriges Baguette mit gegrilltem Schweinefleisch, Gurken, Koriander, Jalapeños und hausgemachter Mayonnaise.</p>
+              <p class="dish-allergens">Gluten, Ei · A, C</p>
+            </div>
+            <div class="menu-item-right">
+              <p class="price">8,90 €</p>
+            </div>
+          </div>
+
+          <div class="menu-item fade-in">
+            <div class="menu-item-left">
+              <p class="dish-name">Cơm Tấm Sườn Nướng – Reisgericht mit Grillrippchen</p>
+              <p class="dish-desc">Gebrochener Reis (Cơm Tấm) mit marinierten Schweinerippen, Ei, Frühlingszwiebeln, eingelegtem Gemüse.</p>
+              <p class="dish-allergens">Gluten, Ei, Soja · A, C, F</p>
+            </div>
+            <div class="menu-item-right">
+              <p class="price">16,90 €</p>
+            </div>
+          </div>
+
+          <div class="menu-item fade-in">
+            <div class="menu-item-left">
+              <p class="dish-name">Bò Lúc Lắc – Rindfleisch in Austernsauce</p>
+              <p class="dish-desc">Zartes Rinderwürfel in Austernsauce angebraten, mit Watercress-Salat, Tomaten und gebratenem Knoblauchbrot.</p>
+              <p class="dish-allergens">Gluten, Weichtiere, Soja · A, C, F</p>
+            </div>
+            <div class="menu-item-right">
+              <p class="price">19,90 €</p>
+            </div>
+          </div>
+
+          <div class="menu-item fade-in">
+            <div class="menu-item-left">
+              <p class="dish-name">Gebratener Fisch mit Zitronengras und Chili</p>
+              <p class="dish-desc">Tagesfrischer Fisch, scharf angebraten mit Zitronengras, roter Chili und frischem Ingwer. Mit Jasminreis.</p>
+              <p class="dish-allergens">Fisch · D</p>
+            </div>
+            <div class="menu-item-right">
+              <p class="price">18,50 €</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- VEGETARISCH -->
+      <div class="menu-section" data-category="vegetarisch">
+        <h2 class="menu-section-title">Vegetarisch</h2>
+        <p class="menu-section-sub">Chay</p>
+        <hr class="menu-divider">
+        <div class="menu-items">
+
+          <div class="menu-item fade-in">
+            <div class="menu-item-left">
+              <p class="dish-name">Phở Chay – Vegane Pho</p>
+              <p class="dish-desc">Reichhaltige Gemüsebrühe mit Sternanis und Zimt, Reisnudeln, Tofu, Pilzen und frischen Kräutern. 100 % vegan.</p>
+              <p class="dish-allergens">Soja · F</p>
+            </div>
+            <div class="menu-item-right">
+              <p class="price">12,90 €</p>
+            </div>
+          </div>
+
+          <div class="menu-item fade-in">
+            <div class="menu-item-left">
+              <p class="dish-name">Vietnamesisches Gemüse-Curry</p>
+              <p class="dish-desc">Cremiges Kokosnuss-Curry mit Süßkartoffeln, Karotten, Zucchini und Koriander. Mit Baguette oder Reis.</p>
+              <p class="dish-allergens">Gluten · A</p>
+            </div>
+            <div class="menu-item-right">
+              <p class="price">13,90 €</p>
+            </div>
+          </div>
+
+          <div class="menu-item fade-in">
+            <div class="menu-item-left">
+              <p class="dish-name">Bánh Mì Chay – Veganes Sandwich</p>
+              <p class="dish-desc">Knuspriges Baguette mit mariniertem Tofu, Avocado, Koriander, Gurken und Chilisauce.</p>
+              <p class="dish-allergens">Gluten, Soja · A, F</p>
+            </div>
+            <div class="menu-item-right">
+              <p class="price">8,50 €</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- GETRÄNKE -->
+      <div class="menu-section" data-category="getraenke">
+        <h2 class="menu-section-title">Getränke</h2>
+        <p class="menu-section-sub">Đồ Uống</p>
+        <hr class="menu-divider">
+        <div class="menu-items">
+
+          <div class="menu-item fade-in">
+            <div class="menu-item-left">
+              <p class="dish-name">Vietnamesischer Eistee (hausgemacht)</p>
+              <p class="dish-desc">Frisch gebrühter grüner Tee, leicht gesüßt, über Eis.</p>
+            </div>
+            <div class="menu-item-right">
+              <p class="price">3,50 €</p>
+            </div>
+          </div>
+
+          <div class="menu-item fade-in">
+            <div class="menu-item-left">
+              <p class="dish-name">Cà Phê Sữa Đá – Vietnamesischer Eiskaffee</p>
+              <p class="dish-desc">Starker Robusta-Kaffee mit gezuckerter Kondensmilch über Eis. Ein Klassiker.</p>
+              <p class="dish-allergens">Milch · G</p>
+            </div>
+            <div class="menu-item-right">
+              <p class="price">4,90 €</p>
+            </div>
+          </div>
+
+          <div class="menu-item fade-in">
+            <div class="menu-item-left">
+              <p class="dish-name">Mango-Smoothie</p>
+              <p class="dish-desc">Frische Alphonso-Mango, Kokosmilch, ein Hauch Limette.</p>
+            </div>
+            <div class="menu-item-right">
+              <p class="price">5,90 €</p>
+            </div>
+          </div>
+
+          <div class="menu-item fade-in">
+            <div class="menu-item-left">
+              <p class="dish-name">Bia Hà Nội / 333 – Vietnamesisches Bier</p>
+              <p class="dish-desc">Authentisches Helles aus Vietnam. Hà Nội oder 333 (Ba Ba Ba).</p>
+              <p class="dish-allergens">Gluten · A</p>
+            </div>
+            <div class="menu-item-right">
+              <p class="price">4,50 €</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DESSERTS -->
+      <div class="menu-section" data-category="desserts">
+        <h2 class="menu-section-title">Desserts</h2>
+        <p class="menu-section-sub">Tráng Miệng</p>
+        <hr class="menu-divider">
+        <div class="menu-items">
+
+          <div class="menu-item fade-in">
+            <div class="menu-item-left">
+              <p class="dish-name">Chè Ba Màu – Dreifarbiges Dessert</p>
+              <p class="dish-desc">Bunte Schichten aus roten Bohnen, grünem Gelee und Kokosmilch über gestoßenem Eis. Ein Klassiker aus Saigon.</p>
+            </div>
+            <div class="menu-item-right">
+              <p class="price">5,90 €</p>
+            </div>
+          </div>
+
+          <div class="menu-item fade-in">
+            <div class="menu-item-left">
+              <p class="dish-name">Gegrillter Bananenkuchen</p>
+              <p class="dish-desc">Weicher Bananenkuchen mit Kokosmilch und Tapioka, warm serviert mit Kokosnuss-Sahne.</p>
+              <p class="dish-allergens">Milch, Ei · C, G</p>
+            </div>
+            <div class="menu-item-right">
+              <p class="price">6,90 €</p>
+            </div>
+          </div>
+
+          <div class="menu-item fade-in">
+            <div class="menu-item-left">
+              <p class="dish-name">Kokosnuss-Eis</p>
+              <p class="dish-desc">Hausgemachtes Kokosnusseis in einer halben Kokosnuss, mit gerösteten Kokosraspeln und Lychee.</p>
+              <p class="dish-allergens">Milch · G</p>
+            </div>
+            <div class="menu-item-right">
+              <p class="price">5,50 €</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <p class="menu-note">Alle Preise inkl. MwSt. · Allergene auf Anfrage · Speisen können Spuren von Nüssen, Gluten, Milch und Eiern enthalten. Wir kennzeichnen: A=Gluten · B=Krebstiere · C=Eier · D=Fisch · F=Soja · G=Milch · N=Sesam</p>
+
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-divider" aria-hidden="true">
+      <svg width="100%" height="24" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="asian-ornament" x="0" y="0" width="48" height="24" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0.5" x2="48" y2="0.5" stroke="#C49A62" stroke-width="0.7" stroke-opacity="0.5"/>
+            <line x1="0" y1="23.5" x2="48" y2="23.5" stroke="#C49A62" stroke-width="0.7" stroke-opacity="0.5"/>
+            <line x1="0" y1="12" x2="8" y2="12" stroke="#C49A62" stroke-width="0.9"/>
+            <line x1="32" y1="12" x2="40" y2="12" stroke="#C49A62" stroke-width="0.9"/>
+            <path d="M24,3 L33,12 L24,21 L15,12 Z" stroke="#C49A62" stroke-width="1.3" fill="none"/>
+            <path d="M24,7 L28,12 L24,17 L20,12 Z" stroke="#C49A62" stroke-width="0.7" fill="none" stroke-opacity="0.55"/>
+            <circle cx="24" cy="12" r="1.5" fill="#C49A62"/>
+            <path d="M0,3 L8,12 L0,21" stroke="#C49A62" stroke-width="1.3" fill="none"/>
+            <path d="M48,3 L40,12 L48,21" stroke="#C49A62" stroke-width="1.3" fill="none"/>
+            <path d="M12,9.5 L14.5,12 L12,14.5 L9.5,12 Z" fill="#C49A62" opacity="0.7"/>
+            <path d="M36,9.5 L38.5,12 L36,14.5 L33.5,12 Z" fill="#C49A62" opacity="0.7"/>
+            <line x1="24" y1="0.5" x2="24" y2="3" stroke="#C49A62" stroke-width="0.8" stroke-opacity="0.55"/>
+            <line x1="24" y1="21" x2="24" y2="23.5" stroke="#C49A62" stroke-width="0.8" stroke-opacity="0.55"/>
+          </pattern>
+        </defs>
+        <rect x="0" y="0" width="100%" height="24" fill="url(#asian-ornament)"/>
+      </svg>
+    </div>
+    <div class="footer-grid">
+      <div>
+        <p class="footer-logo"><svg width="85" height="41" viewBox="0 12 200 98" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M100,24 L14,96 Q100,108 186,96 Z" fill="#A07840"/><circle cx="100" cy="24" r="3.5" fill="#C49A62"/><path d="M100,27 Q82,62 78,97" fill="none" stroke="rgba(196,154,98,0.45)" stroke-width="1.2"/><circle cx="78" cy="97" r="2" fill="rgba(196,154,98,0.5)"/></svg><span class="footer-logo-mark">MAISON PHỞ</span></p>
+        <p class="footer-tagline">Authentische Vietnamesische Küche seit 1998</p>
+        <div class="footer-social">
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">TripAdvisor</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="speisekarte.html">Speisekarte</a></li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="reservierung.html">Reservierung</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <p class="hours-entry">Torstraße 142<br>10119 Berlin</p>
+        <p class="hours-entry" style="margin-top:8px;"><a href="tel:+493012345678" class="phone-link">+49 30 123 456 78</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Öffnungszeiten</h4>
+        <p class="hours-entry">Mo–Fr <span>11:30–22:00</span></p>
+        <p class="hours-entry">Sa–So <span>12:00–22:30</span></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Maison Phở · Alle Rechte vorbehalten</p>
+      <a href="impressum.html">Impressum</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
